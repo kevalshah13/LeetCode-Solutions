@@ -15,11 +15,7 @@ class Solution:
                 elif tokens[i]=='*':
                     ans=int(tokens[i-2])*int(tokens[i-1])
                 else:
-                    ans=int(tokens[i-2])/int(tokens[i-1])
-                    if ans<0:
-                        ans=ceil(ans)
-                    else:
-                        ans=floor(ans)
+                    ans=int(int(tokens[i-2])/int(tokens[i-1]))
                 tokens[i-2]=ans
                 del tokens[i-1]
                 del tokens[i-1]

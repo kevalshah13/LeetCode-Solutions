@@ -3,17 +3,21 @@ class Solution:
         mem={}
         for i in arr:
             mem[i]=1+mem.get(i,0)
-        # print(mem)
         mem=dict(sorted(mem.items(), key=lambda i: i[1]))
+        ans=len(mem)
         for i in mem:
-            if(k>=mem[i]):
-                k-=mem[i]
-                mem[i]=0
-            else:
+            k-= mem[i]
+            if k<0:
                 break
-        # print(mem)
-        ans=0
-        for i in mem:
-            if mem[i]!=0:
-                ans+=1
+            ans-=1
+        
+            # if(k>=mem[i]):
+            #     k-=mem[i]
+            #     mem[i]=0
+            # else:
+            #     break
+        # ans=0
+        # for i in mem:
+        #     if mem[i]!=0:
+        #         ans+=1
         return ans

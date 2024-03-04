@@ -26,7 +26,6 @@ class Solution:
                     currScore+=1
                     power-=tokens[l]
                     l+=1
-            print(currScore, tokens[l],tokens[r])
             ans=max(ans,currScore)
         # print(ans)
         return ans

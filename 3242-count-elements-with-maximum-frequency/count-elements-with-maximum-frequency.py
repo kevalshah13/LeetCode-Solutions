@@ -10,7 +10,6 @@ class Solution:
                 c=1
             elif(mem[i]==m):
                 c+=1
-        print(mem,m, c)
         return m*c
         
         

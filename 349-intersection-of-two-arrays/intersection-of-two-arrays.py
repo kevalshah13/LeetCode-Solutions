@@ -2,7 +2,6 @@ class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         nums1=sorted(list(set(nums1)))
         nums2=sorted(list(set(nums2)))
-        print(nums1,nums2)
         ans=[]
         l,r=0,0
         while(l<len(nums1) and r<len(nums2)):

@@ -16,15 +16,17 @@ class Solution:
                 # print(list1.val)
             c+=1
             list1=list1.next
+        prev.next=list2
+        while(list2.next):
+            list2=list2.next
+        list2.next=new
         # # print(prev.val,new.val)
-        while(dummy):
-            if(dummy==prev):
-                dummy.next=list2
-                break
-            else:
-                dummy=dummy.next
-        # print(dummy)
-        while(dummy.next):
-            dummy=dummy.next
-        dummy.next=new
+        # while(dummy):
+        #     if(dummy==prev):
+        #         dummy.next=list2
+        #         break
+        #     else:
+        #         dummy=dummy.next
+        # # print(dummy)
+        
         return head

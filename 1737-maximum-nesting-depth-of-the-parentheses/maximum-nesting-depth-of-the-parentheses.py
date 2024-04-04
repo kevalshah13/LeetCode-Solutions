@@ -8,6 +8,5 @@ class Solution:
             elif(i==')'):
                 curr-=1
             ans=max(ans,curr)
-        print(curr)
         return ans
         

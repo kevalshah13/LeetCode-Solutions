@@ -5,9 +5,7 @@ class Solution:
             if i=="../":
                 if ans>0:
                     ans=ans-1
-            elif i=="./":
-                continue
-            else:
+            elif i!="./":
                 ans+=1
         return ans
         

@@ -3,10 +3,9 @@ class Solution:
         mem={}
         for i in arr:
             mem[i]=1+mem.get(i,0)
-        c=0
         for i in mem:
             if(mem[i]==1):
-                c+=1
-                if(c==k):
+                k-=1
+                if(k==0):
                     return i
         return ""

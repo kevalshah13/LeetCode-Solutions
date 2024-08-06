@@ -9,11 +9,11 @@ class Solution:
         mem = dict(sorted(mem.items(), key=lambda x: x[1],reverse=True))
         ans=0
         count=0
-        mult=1
+        # mult=1
         for i in mem:
-            if(count>=8):
-                count=count%8
-                mult+=1
-            ans+=mem[i]*mult
+            # if(count>=8):
+            #     count=count%8
+            #     mult+=1
+            ans+=mem[i]*(count//8 +1)
             count+=1
         return ans

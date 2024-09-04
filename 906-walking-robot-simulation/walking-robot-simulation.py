@@ -1,42 +1,42 @@
 class Solution:
-    def __init__(self):
-        self.HASH_MULTIPLIER = (
-            60013  # Slightly larger than 2 * max coordinate value
-        )
-
     def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:
-        # Store obstacles in an set for efficient lookup
-        obstacle_set = {self._hash_coordinates(x, y) for x, y in obstacles}
+        dir=['N','E','S','W']
+        d=0
+        x=0
+        y=0
+        res=0
+        s=set((i,j) for i,j in obstacles)
+        for i in range(len(commands)):
+            if commands[i]==-1:
+                d+=1
+                d=d%4
+            elif  commands[i]==-2:
+                d-=1
+                d=d%4
+            else:
+                if dir[d]=='N':
+                    for move in range(commands[i]):
+                        if (x,y+1) in s:
+                            break
+                        y+=1
+                elif dir[d]=='E':
+                    for move in range(commands[i]):
+                        if (x+1,y) in s:
+                            break
+                        x+=1
+                elif dir[d]=='S':
+                    for move in range(commands[i]):
+                        if (x,y-1) in s:
+                            break
+                        y-=1
+                else:
+                    for move in range(commands[i]):
+                        if (x-1,y) in s:
+                            break
+                        x-=1
+            res=max(res,x**2+y**2)
+        return res
 
-        # Define direction vectors: North, East, South, West
-        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
-        x, y = 0, 0
-        max_distance_squared = 0
-        current_direction = 0  # 0: North, 1: East, 2: South, 3: West
 
-        for command in commands:
-            if command == -1:  # Turn right
-                current_direction = (current_direction + 1) % 4
-                continue
-
-            if command == -2:  # Turn left
-                current_direction = (current_direction + 3) % 4
-                continue
-
-            # Move forward
-            dx, dy = directions[current_direction]
-            for _ in range(command):
-                next_x, next_y = x + dx, y + dy
-                if self._hash_coordinates(next_x, next_y) in obstacle_set:
-                    break
-                x, y = next_x, next_y
-
-            max_distance_squared = max(max_distance_squared, x * x + y * y)
-
-        return max_distance_squared
-
-    # Hash function to convert (x, y) coordinates to a unique integer value
-    def _hash_coordinates(self, x: int, y: int) -> int:
-        return x + self.HASH_MULTIPLIER * y
-                
+        

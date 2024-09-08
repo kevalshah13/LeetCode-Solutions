@@ -19,11 +19,9 @@ class Solution:
             j=length[i]
             dummy1=new=head
             while(j>1):
-                if head:
-                    head=head.next
-                if new:
-                    new.next=head
-                    new=new.next
+                head=head.next
+                new.next=head
+                new=new.next
                 j-=1
             if head:
                 head=head.next

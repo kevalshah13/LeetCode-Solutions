@@ -10,9 +10,4 @@ class Solution:
             if(st):
                 words.append(st)
             i+=1
-        # print(words)
-        # ans=''
-        # for i in range(len(words)-1,-1,-1):
-        #     print(i)
-        #     ans+=words[i]+' '
         return ' '.join(words[::-1])

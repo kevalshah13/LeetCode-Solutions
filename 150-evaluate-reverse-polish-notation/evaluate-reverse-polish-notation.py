@@ -17,11 +17,11 @@ class Solution:
             elif(i=='/'):
                 a=stack.pop()
                 b=stack.pop()
-                if(b/a<0):
-                    ans=math.ceil(b /a)
-                else:
-                    ans=b//a
-                stack.append(ans)
+                # if(b/a<0):
+                #     ans=math.ceil(b /a)
+                # else:
+                #     ans=b//a
+                stack.append(int(b/a))
             else:
                 stack.append(int(i))
             # print(stack)

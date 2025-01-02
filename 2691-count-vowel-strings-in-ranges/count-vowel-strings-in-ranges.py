@@ -8,7 +8,6 @@ class Solution:
             if(words[i][0] in vowels and words[i][-1] in vowels):
                 countVow+=1
             vowWords.append(countVow)
-        print(vowWords)
         for i,j in queries:
             ans.append(vowWords[j+1]-vowWords[i])
         return ans

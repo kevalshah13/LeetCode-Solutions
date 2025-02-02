@@ -3,7 +3,7 @@ with temp as
 (select id,num,lead(num) over(order by id) as num2
 from logs),
 temp1 as
-(select distinct id,num,num2,lead(num2) over(order by id) as num3
+(select num,num2,lead(num2) over(order by id) as num3
 from temp)
 select distinct num as ConsecutiveNums
 from temp1
